@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fil">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Caloocan Health Finder</title>
+<meta name="theme-color" content="#0f766e">
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="top">
+      <h1><span class="logo">🏥</span> Caloocan Health Finder</h1>
+      <span class="live" id="live"><span class="dot"></span><span id="liveTxt">Hindi pa naka-locate</span></span>
+    </div>
+    <p class="sub">Hanapin agad ang pinakamalapit na ospital, klinika, paanakan at anti-rabies sa Caloocan.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero" aria-label="Paghahanap">
+    <div class="actions">
+      <button class="btn search" id="btnSearch"><span class="radar"></span><span id="searchLbl">Hanapin ang malapit sa akin</span></button>
+      <button class="btn urgent" id="btnUrgent">🚨 EMERGENCY – Pinakamalapit na ospital</button>
+    </div>
+    <div class="chips" role="group" aria-label="Uri ng pasilidad" id="chips">
+      <button class="chip" data-f="all" aria-pressed="true">Lahat</button>
+      <button class="chip" data-f="hospital" aria-pressed="false">🏥 Ospital</button>
+      <button class="chip" data-f="clinic" aria-pressed="false">🩺 Klinika</button>
+      <button class="chip" data-f="birth" aria-pressed="false">🤱 Paanakan</button>
+      <button class="chip" data-f="rabies" aria-pressed="false">🐕 Anti-rabies</button>
+    </div>
+    <div class="row">
+      <span id="status" role="status" aria-live="polite">I-tap ang “Hanapin” para magsimula.</span>
+      <label>Saklaw:
+        <select id="radius">
+          <option value="2000">2 km</option>
+          <option value="3000" selected>3 km</option>
+          <option value="5000">5 km</option>
+          <option value="8000">8 km</option>
+        </select>
+      </label>
+    </div>
+  </section>
+
+  <section class="grid">
+    <div class="list" id="list" aria-label="Mga resulta"><div class="empty">Walang resulta pa. Pindutin ang “Hanapin ang malapit sa akin”.</div></div>
+    <div id="map" role="application" aria-label="Mapa"></div>
+  </section>
+  <p class="disc">Datos mula sa OpenStreetMap — maaaring hindi kumpleto o luma. Tumawag muna bago pumunta. Sa matinding emergency, tumawag sa <strong>911</strong>.</p>
+</main>
+
+<dialog id="dlg">
+  <div class="dlg-h">🚨 Emergency – Pinakamalapit na ospital</div>
+  <div class="dlg-b" id="dlgBody"></div>
+</dialog>
+
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
